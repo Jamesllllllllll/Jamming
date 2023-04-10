@@ -29,7 +29,7 @@ class App extends React.Component {
     } else {
 
       tracks.push(track);
-      this.setState({ searchResults: tracks });
+      this.setState({ playlistTracks: tracks });
 
     }
   }
