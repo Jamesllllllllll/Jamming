@@ -64,11 +64,11 @@ class App extends React.Component {
   updatePlaylistName(name) {
     this.setState({ playlistName: name });
   }
-
+/*
   savePlaylist() {
     const trackURIs = this.state.playlistTracks.map(track => track.uri);
   }
-
+*/
   search(searchTerm) {
     console.log('searchTerm');
   }
