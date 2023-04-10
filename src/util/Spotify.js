@@ -31,6 +31,28 @@ const Spotify = {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
+    })
+    .then(
+      response => {
+        if(response.ok){
+          return response.json();
+        }
+          throw new Error('Request failed');
+      }, networkError => {
+        console.log(networkError.message);
+      }).then(jsonResponse => {
+        if (!jsonResponse.tracks) {
+          return [];
+        }
+        return jsonResponse.tracks.items.map(track => ({
+          id: track.id,
+          name: track.name,
+          artists: track.artists[0].name,
+          album: track.album.name,
+          uri: track.uri
+        }));
+      })
   },
 };
+
+export default Spotify;

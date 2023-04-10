@@ -5,7 +5,7 @@ import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../Playlist/Playlist";
-// import { redirectToAuthCodeFlow } from "../../util/Spotify"
+import Spotify from "../../util/Spotify";
 
 class App extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class App extends React.Component {
           artist: "Aphex Twin",
           album: "...I Care Because You Do",
           id: "3",
-          uri: "1234"
+          uri: "1234",
         },
       ],
     };
@@ -70,22 +70,20 @@ class App extends React.Component {
     // const trackURIs = this.state.playlistTracks.map(track => track.uri);
   }
 
-  search(searchTerm) {
-    console.log('searchTerm');
+  search(term) {
+    Spotify.search(term).then((searchResults) => {
+      this.setState({ searchResults: searchResults });
+    });
   }
-
 
   render() {
     return (
       <div>
-        
         <h1>
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          <SearchBar 
-            onSearch={this.search} 
-          />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults
               searchResults={this.state.searchResults}
