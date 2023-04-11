@@ -12,31 +12,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      searchResults: [
-        {
-          name: "Ice V",
-          artist: "King Gizzard and the Lizard Wizard",
-          album: "Ice, Death, Planets, Lungs, Mushrooms and Lava",
-          id: "1",
-        },
-        { name: "23", artist: "Blonde Redhead", album: "23", id: "2" },
-        {
-          name: "Acrit Avid Jam Shred",
-          artist: "Aphex Twin",
-          album: "...I Care Because You Do",
-          id: "3",
-        },
-      ],
+      searchResults: [],
       playlistName: "",
-      playlistTracks: [
-        {
-          name: "Acrit Avid Jam Shred",
-          artist: "Aphex Twin",
-          album: "...I Care Because You Do",
-          id: "3",
-          uri: "1234",
-        },
-      ],
+      playlistTracks: [],
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -78,9 +56,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
         <h1>
-          Ja<span className="highlight">mmm</span>ing
+          Create A Spotify Pla<span className="highlight">yyy</span>list
         </h1>
         <div className="App">
           <SearchBar onSearch={this.search} />

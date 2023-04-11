@@ -34,13 +34,8 @@ const Spotify = {
     })
     .then(
       response => {
-        if(response.ok){
           return response.json();
-        }
-          throw new Error('Request failed');
-      }, networkError => {
-        console.log(networkError.message);
-      }).then(jsonResponse => {
+        }).then(jsonResponse => {
         if (!jsonResponse.tracks) {
           return [];
         }
@@ -53,6 +48,12 @@ const Spotify = {
         }));
       })
   },
+
+  savePlaylist(playlistName, trackURIs) {
+    if (!playlistName || !trackURIs) {
+      return;
+    }
+  }
 };
 
 export default Spotify;
