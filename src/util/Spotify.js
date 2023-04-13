@@ -1,5 +1,6 @@
 const clientID = "16788dbfe38945a6a6a9d5544f03141f";
 const redirectUri = "https://profound-tulumba-67518f.netlify.app/";
+
 let accessToken;
 
 const Spotify = {
