@@ -8,11 +8,12 @@ html {
   font-size: 18px;
   }
 
-body {
+div.body {
   background-image: url('./DJ.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 h1 {
