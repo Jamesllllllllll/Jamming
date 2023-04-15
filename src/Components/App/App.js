@@ -82,23 +82,25 @@ class App extends React.Component {
         </h1>
         <div className="App">
           {this.state.showLogin && <Login onClick={this.login} />}
-          <SearchBar onSearch={this.search} />
-          {/* !isLoggedIn && <Login />*/}
-          {/* future upgrade - add login button and remove authorize redirect */}
-          <div className="App-playlist">
-            <SearchResults
-              searchResults={this.state.searchResults}
-              onAdd={this.addTrack}
-            />
+          {!this.state.showLogin && (
+            <>
+              <SearchBar onSearch={this.search} />
+              <div className="App-playlist">
+                <SearchResults
+                  searchResults={this.state.searchResults}
+                  onAdd={this.addTrack}
+                />
 
-            <PlayList
-              playlistName={this.state.playlistName}
-              playlistTracks={this.state.playlistTracks}
-              onRemove={this.removeTrack}
-              onNameChange={this.updatePlaylistName}
-              onSave={this.savePlaylist}
-            />
-          </div>
+                <PlayList
+                  playlistName={this.state.playlistName}
+                  playlistTracks={this.state.playlistTracks}
+                  onRemove={this.removeTrack}
+                  onNameChange={this.updatePlaylistName}
+                  onSave={this.savePlaylist}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     );
