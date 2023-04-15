@@ -68,6 +68,8 @@ class App extends React.Component {
         </h1>
         <div className="App">
           <SearchBar onSearch={this.search} />
+           {/* !isLoggedIn && <Login />*/}
+           {/* future upgrade - add login button and remove authorize redirect */}
           <div className="App-playlist">
             <SearchResults
               searchResults={this.state.searchResults}
