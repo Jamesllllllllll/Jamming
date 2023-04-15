@@ -6,13 +6,14 @@ html,
 
 html {
   font-size: 18px;
-}
-
-body {
   background-image: url('./DJ.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+body {
+
 
 }
 
