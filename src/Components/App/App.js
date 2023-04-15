@@ -39,12 +39,19 @@ class App extends React.Component {
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-
+    let searchResults = this.state.searchResults;
     if (tracks.find((savedTrack) => savedTrack.id === track.id)) {
       return;
     } else {
       tracks.push(track);
       this.setState({ playlistTracks: tracks });
+      for (let i = searchResults.length -1; i >= 0; i--) {
+        if (searchResults[i] === track) {
+          searchResults.splice(i, 1);
+        }
+      }
+      
+      this.setState({ searchResults: searchResults })
     }
   }
 
