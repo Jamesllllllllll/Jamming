@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.css";
 
+import Login from "../Login/Login";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../Playlist/Playlist";
@@ -15,12 +16,24 @@ class App extends React.Component {
       searchResults: [],
       playlistName: "",
       playlistTracks: [],
+      showLogin: true,
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
+  }
+
+  checkLogin() {
+    let accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
+    if (accessTokenMatch) {
+      this.setState({ showLogin: false });
+    }
+  }
+
+  login() {
+    Spotify.login();
   }
 
   addTrack(track) {
@@ -45,13 +58,13 @@ class App extends React.Component {
   }
 
   savePlaylist() {
-    const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    const trackURIs = this.state.playlistTracks.map((track) => track.uri);
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
       this.setState({
-        playlistName: "New Playlist", 
-        playlistTracks: []
-      })
-    })
+        playlistName: "New Playlist",
+        playlistTracks: [],
+      });
+    });
   }
 
   search(term) {
@@ -63,13 +76,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="body">
+        {this.checkLogin()}
         <h1>
           Create A Spotify Pla<span className="highlight">yyy</span>list
         </h1>
         <div className="App">
+          {this.state.showLogin && <Login onClick={this.login} />}
           <SearchBar onSearch={this.search} />
-           {/* !isLoggedIn && <Login />*/}
-           {/* future upgrade - add login button and remove authorize redirect */}
+          {/* !isLoggedIn && <Login />*/}
+          {/* future upgrade - add login button and remove authorize redirect */}
           <div className="App-playlist">
             <SearchResults
               searchResults={this.state.searchResults}
@@ -77,10 +92,10 @@ class App extends React.Component {
             />
 
             <PlayList
-              playlistName={this.state.playlistName} 
-              playlistTracks={this.state.playlistTracks} 
-              onRemove={this.removeTrack} 
-              onNameChange={this.updatePlaylistName} 
+              playlistName={this.state.playlistName}
+              playlistTracks={this.state.playlistTracks}
+              onRemove={this.removeTrack}
+              onNameChange={this.updatePlaylistName}
               onSave={this.savePlaylist}
             />
           </div>

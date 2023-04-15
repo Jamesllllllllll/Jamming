@@ -1,6 +1,6 @@
 const clientID = "16788dbfe38945a6a6a9d5544f03141f";
-// const redirectUri = "https://profound-tulumba-67518f.netlify.app/";
-const redirectUri = "http://localhost:3000"
+const redirectUri = "https://profound-tulumba-67518f.netlify.app/";
+// const redirectUri = "http://localhost:3000"
 
 let accessToken;
 
@@ -22,9 +22,14 @@ const Spotify = {
       window.history.pushState("Access Token", null, "/");
       return accessToken;
     } else {
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
-      window.location = accessUrl;
+      // const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+      // window.location = accessUrl;
     }
+  },
+
+  login() {
+    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+    window.location = accessUrl;
   },
 
   search(term) {
