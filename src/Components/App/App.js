@@ -29,6 +29,7 @@ class App extends React.Component {
     let accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
     if (accessTokenMatch) {
       this.setState({ showLogin: false });
+      Spotify.getAccessToken();
     }
   }
 

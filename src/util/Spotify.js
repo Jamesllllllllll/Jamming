@@ -33,7 +33,7 @@ const Spotify = {
   },
 
   search(term) {
-    const accessToken = Spotify.getAccessToken();
+    // const accessToken = Spotify.getAccessToken(); // No longer necessary since logging in auto-checks and removes token from URL
     return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
