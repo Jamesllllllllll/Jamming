@@ -7,6 +7,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../Playlist/Playlist";
 import Spotify from "../../util/Spotify";
+import Footer from "../Footer/Footer";
 
 class App extends React.Component {
   constructor(props) {
@@ -114,8 +115,11 @@ class App extends React.Component {
               </div>
             </>
           )}
+          
         </div>
+        <Footer />  
       </div>
+      
     );
   }
 }
