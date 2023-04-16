@@ -17,6 +17,7 @@ class App extends React.Component {
       playlistName: "",
       playlistTracks: [],
       showLogin: true,
+      searchTerm: "",
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -79,6 +80,7 @@ class App extends React.Component {
     Spotify.search(term).then((searchResults) => {
       this.setState({ searchResults: searchResults });
     });
+    this.setState({ searchTerm: term });
   }
 
   componentDidMount() {
