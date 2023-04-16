@@ -37,7 +37,7 @@ h2 {
 
 .App {
   height: 100%;
-  padding: 0 17% 0 17%;
+  padding: 0 20px 100px 20px;
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   color: #fff;
@@ -49,9 +49,15 @@ h2 {
   width: 100%;
 }
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1120px) {
   .App-playlist {
     align-items: center;
     flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  .App {
+    padding: 0 5rem 100px 5rem;
   }
 }

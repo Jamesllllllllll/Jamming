@@ -1,10 +1,9 @@
 .SearchResults {
-    width: 50%;
+    width: 45%;
     height: 650px;
-    overflow-y: scroll;
-    padding: .88rem;
+    padding: 1.25rem;
+    border-radius: 5px;
     background-color: rgba(1, 12, 63, 0.7);
-    box-shadow: 0 4px 2px 2px #000000;
     backdrop-filter: blur(10px);
   }
   
@@ -13,9 +12,16 @@
       background: transparent;
   }
   
-  @media only screen and (max-width: 1020px) {
+  @media only screen and (max-width: 1120px) {
     .SearchResults {
       width: 90%;
       margin-bottom: 2rem;
     }
+  }
+
+  h2 {
+    text-align: center;
+    line-height: normal;
+    position: sticky;
+    top: 0;
   }

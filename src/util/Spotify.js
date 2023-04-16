@@ -1,6 +1,6 @@
 const clientID = "16788dbfe38945a6a6a9d5544f03141f";
-const redirectUri = "https://create-spotify-playlists.netlify.app/";
-// const redirectUri = "http://localhost:3000"
+// const redirectUri = "https://create-spotify-playlists.netlify.app/";
+const redirectUri = "http://localhost:3000"
 
 let accessToken;
 
@@ -51,6 +51,7 @@ const Spotify = {
           name: track.name,
           artists: track.artists[0].name,
           album: track.album.name,
+          image: track.album.images[0].url,
           uri: track.uri,
         }));
       });

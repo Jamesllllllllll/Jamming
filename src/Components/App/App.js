@@ -45,13 +45,13 @@ class App extends React.Component {
     } else {
       tracks.push(track);
       this.setState({ playlistTracks: tracks });
-      for (let i = searchResults.length -1; i >= 0; i--) {
+      for (let i = searchResults.length - 1; i >= 0; i--) {
         if (searchResults[i] === track) {
           searchResults.splice(i, 1);
         }
       }
-      
-      this.setState({ searchResults: searchResults })
+
+      this.setState({ searchResults: searchResults });
     }
   }
 
@@ -81,10 +81,13 @@ class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.checkLogin();
+  }
+
   render() {
     return (
       <div className="body">
-        {this.checkLogin()}
         <h1>
           Create A Spotify Pla<span className="highlight">yyy</span>list
         </h1>
