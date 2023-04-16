@@ -14,8 +14,7 @@ function Login() {
           project created by{" "}
           <a href="https://github.com/jamesllllllllll">
             James
-          </a>{" "}
-          - April 2023
+          </a>
         </p>
       </div>
     </footer>
