@@ -1,4 +1,4 @@
-const clientID = "16788dbfe38945a6a6a9d5544f03141f";
+const clientID = process.env.REACT_APP_API_KEY;
 const redirectUri = "https://create-spotify-playlists.netlify.app/";
 // const redirectUri = "http://localhost:3000"
 
